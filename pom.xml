@@ -1,0 +1,320 @@
+<?xml version="1.0"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.baeldung.springsecuredsockets</groupId>
+	<artifactId>spring-security-mvc-socket</artifactId>
+	<version>1.0.0</version>
+	<name>spring-security-mvc-socket</name>
+	<packaging>war</packaging>
+
+	<build>
+		<finalName>${project.artifactId}</finalName>
+		<plugins>
+
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-eclipse-plugin</artifactId>
+				<version>2.9</version>
+				<configuration>
+					<downloadSources>true</downloadSources>
+					<downloadJavadocs>false</downloadJavadocs>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.0</version>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-war-plugin</artifactId>
+				<version>3.2.1</version>
+				<configuration>
+					<warSourceDirectory>WebContent</warSourceDirectory>
+					<archive>
+						<manifest>
+							<addClasspath>true</addClasspath>
+						</manifest>
+					</archive>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<version>1.8</version>
+				<executions>
+					<execution>
+						<phase>package</phase>
+						<goals>
+							<goal>run</goal>
+						</goals>
+						<configuration>
+							<!-- <tasks> <echo>Using env.test.properties</echo> <copy file="P:/90030_MyCodes/workspace_java/cms-outpatient-core/target/cms-outpatient-core-jar-with-dependencies.jar" 
+								tofile="${basedir}/WebContent/WEB-INF/lib/cms-outpatient-core-jar-with-dependencies.jar" 
+								/> </tasks> -->
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+	<repositories>
+		<repository>
+			<id>sonatype-oss-snapshots</id>
+			<name>Sonatype OSS Snapshots Repo</name>
+			<url>https://oss.sonatype.org/content/repositories/snapshots/</url>
+		</repository>
+		<repository>
+			<id>alfresco</id>
+			<name>alfresco</name>
+			<url>https://artifacts.alfresco.com/nexus/content/groups/public/</url>
+		</repository>
+		<repository>
+			<id>org.jboss.resteasy</id>
+			<url>http://repository.jboss.org/maven2/</url>
+		</repository>
+		<repository>
+			<id>maven2-repository.java.net</id>
+			<name>Java.net Repository for Maven</name>
+			<url>http://download.java.net/maven/2/</url>
+			<layout>default</layout>
+		</repository>
+	</repositories>
+	<properties>
+		<jersey.version.java.1.8>2.25</jersey.version.java.1.8>
+		<jaxrs.version.java.1.8>2.1</jaxrs.version.java.1.8>
+		<jersey.scope.java.1.8>compile</jersey.scope.java.1.8>
+
+		<jersey.version.java.1.7>1.19.2</jersey.version.java.1.7>
+		<jaxrs.version.java.1.7>2.0</jaxrs.version.java.1.7>
+
+		<poi.java.1.7>3.17</poi.java.1.7>
+		<poi.java.1.8>3.9</poi.java.1.8>
+		<cxf.version>3.1.5</cxf.version>
+		<jackson.version>1.9.10</jackson.version>
+
+		<failOnMissingWebXml>false</failOnMissingWebXml>
+		<spring.version>5.2.3.RELEASE</spring.version>
+		<hibernate.version>5.4.3.Final</hibernate.version>
+		<hibernate.validator>5.4.3.Final</hibernate.validator>
+		<hibernate.annotation>5.1.0.Final</hibernate.annotation>
+		<c3p0.version>0.9.5.4</c3p0.version>
+		<jstl.version>1.2.1</jstl.version>
+		<tld.version>1.1.2</tld.version>
+		<servlets.version>3.1.0</servlets.version>
+		<jsp.version>2.3.1</jsp.version>
+		<hsqldb.version>1.8.0.10</hsqldb.version>
+		<jackson.databind-version>2.2.3</jackson.databind-version>
+		<quartz-scheduler>2.3.0</quartz-scheduler>
+		<javaee-api>8.0</javaee-api>
+
+		<hibernate-core.version>5.2.10.Final</hibernate-core.version>
+		<spring-security.version>4.2.3.RELEASE</spring-security.version>
+		<spring-data-jpa.version>1.11.3.RELEASE</spring-data-jpa.version>
+		<logback-classic.version>1.2.3</logback-classic.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <gib.referenceBranch>refs/remotes/origin/master</gib.referenceBranch>
+        <gib.skipTestsForUpstreamModules>true</gib.skipTestsForUpstreamModules>
+        <gib.buildUpstream>false</gib.buildUpstream>
+        <gib.failOnMissingGitDir>false</gib.failOnMissingGitDir>
+        <gib.failOnError>false</gib.failOnError>
+        <gib.enabled>false</gib.enabled>
+
+        <junit.version>4.12</junit.version>
+        <org.hamcrest.version>1.3</org.hamcrest.version>
+        <mockito.version>2.21.0</mockito.version>
+
+        <!-- logging -->
+        <org.slf4j.version>1.7.21</org.slf4j.version>
+        <logback.version>1.1.7</logback.version>
+
+        <!-- plugins -->
+        <!-- can't upgrade the plugin yet; as there is an issue with 2.22 no longer running all the tests-->
+        <maven-surefire-plugin.version>2.21.0</maven-surefire-plugin.version>
+        <maven-compiler-plugin.version>3.7.0</maven-compiler-plugin.version>
+        <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
+        <java.version>1.8</java.version>
+        <log4j.version>1.2.17</log4j.version>
+        <moneta.version>1.1</moneta.version>
+        <esapi.version>2.1.0.1</esapi.version>
+        <jmh-core.version>1.19</jmh-core.version>
+        <jmh-generator.version>1.19</jmh-generator.version>
+        <hamcrest-all.version>1.3</hamcrest-all.version>
+        <exec-maven-plugin.version>1.6.0</exec-maven-plugin.version>
+        <maven-failsafe-plugin.version>2.21.0</maven-failsafe-plugin.version>
+        <commons-io.version>2.5</commons-io.version>
+        <commons-lang.version>2.6</commons-lang.version>
+        <commons-lang3.version>3.5</commons-lang3.version>
+        <commons-cli.version>1.4</commons-cli.version>
+        <maven-war-plugin.version>3.0.0</maven-war-plugin.version>
+        <javax.servlet-api.version>3.1.0</javax.servlet-api.version>
+        <jstl-api.version>1.2</jstl-api.version>
+        <javax.servlet.jsp-api.version>2.3.1</javax.servlet.jsp-api.version>
+        <jackson-mapper-asl.version>1.9.13</jackson-mapper-asl.version>
+        <jstl.version>1.2</jstl.version>
+        <jackson.version>2.9.8</jackson.version>
+        <commons-fileupload.version>1.3</commons-fileupload.version>
+        <junit-platform.version>1.2.0</junit-platform.version>
+        <junit-jupiter.version>5.2.0</junit-jupiter.version>
+        <directory-maven-plugin.version>0.3.1</directory-maven-plugin.version>
+        <maven-install-plugin.version>2.5.1</maven-install-plugin.version>
+        <custom-pmd.version>0.0.1</custom-pmd.version>
+        <gitflow-incremental-builder.version>3.8</gitflow-incremental-builder.version>
+        <maven-jxr-plugin.version>2.3</maven-jxr-plugin.version>
+        <!-- <maven-pmd-plugin.version>3.9.0</maven-pmd-plugin.version> -->
+        <maven-pmd-plugin.version>3.8</maven-pmd-plugin.version>
+        <lombok.version>1.16.12</lombok.version>
+        <h2.version>1.4.197</h2.version>
+	</properties>
+
+	<dependencies>
+		<!-- Spring Dependencies -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-web</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>commons-logging</groupId>
+					<artifactId>commons-logging</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+
+		<!-- Spring Security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+			<version>${spring-security.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+			<version>${spring-security.version}</version>
+		</dependency>
+
+		<!-- Websockets -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-websocket</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-messaging</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-messaging</artifactId>
+			<version>${spring-security.version}</version>
+		</dependency>
+
+		<!-- Data -->
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>${spring-data-jpa.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate-core.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<version>${h2.version}</version>
+		</dependency>
+		<!-- Logging -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+			<version>${org.slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback-classic.version}</version>
+		</dependency>
+
+		<!-- Servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>${javax.servlet-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp.jstl</groupId>
+			<artifactId>jstl-api</artifactId>
+			<version>${jstl-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>javax.servlet.jsp-api</artifactId>
+			<version>${javax.servlet.jsp-api.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+
+		<!-- Jackson Dependencies -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${jackson.version}</version>
+		</dependency>
+
+		<!-- Test -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<version>1.5.10.RELEASE</version>
+			<scope>test</scope>
+		</dependency>
+	</dependencies>
+
+
+
+
+</project>
