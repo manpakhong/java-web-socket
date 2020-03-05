@@ -96,7 +96,7 @@
 		<poi.java.1.7>3.17</poi.java.1.7>
 		<poi.java.1.8>3.9</poi.java.1.8>
 		<cxf.version>3.1.5</cxf.version>
-		<jackson.version>1.9.10</jackson.version>
+		<jackson.version>2.10.3</jackson.version>
 
 		<failOnMissingWebXml>false</failOnMissingWebXml>
 		<spring.version>5.2.3.RELEASE</spring.version>
