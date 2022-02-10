@@ -113,7 +113,7 @@
 		<quartz-scheduler>2.3.0</quartz-scheduler>
 		<javaee-api>8.0</javaee-api>
 
-		<hibernate-core.version>5.2.10.Final</hibernate-core.version>
+		<hibernate-core.version>5.4.24.Final</hibernate-core.version>
 		<spring-security.version>4.2.3.RELEASE</spring-security.version>
 		<spring-data-jpa.version>1.11.3.RELEASE</spring-data-jpa.version>
 		<logback-classic.version>1.2.3</logback-classic.version>
